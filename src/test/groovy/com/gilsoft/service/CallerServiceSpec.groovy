@@ -5,7 +5,11 @@ import static org.hamcrest.CoreMatchers.*
 
 class CallerServiceSpec extends Specification {
     def calledService = Mock(CalledService)
-    def callerService = new CallerService(calledService)
+    def callerService = new CallerService()
+
+    def setup() {
+        callerService.calledService = calledService;
+    }
 
     def ".execute -> should forward parameter to method"() {
         given:
