@@ -1,6 +1,6 @@
 package com.gilsoft.application.root
 
-import com.gilsoft.application.App
+import com.gilsoft.App
 import org.springframework.beans.BeansException
 import org.springframework.boot.test.IntegrationTest
 import org.springframework.boot.test.SpringApplicationContextLoader
@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 @ContextConfiguration(loader = SpringApplicationContextLoader.class, classes = App.class)
 @WebAppConfiguration
 @IntegrationTest
-class RootControllerSpec extends Specification implements ApplicationContextAware {
+class RootControllerISpec extends Specification implements ApplicationContextAware {
     def ctx
 
     def mvc() {

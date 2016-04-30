@@ -1,4 +1,4 @@
-package com.gilsoft.application;
+package com.gilsoft;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
