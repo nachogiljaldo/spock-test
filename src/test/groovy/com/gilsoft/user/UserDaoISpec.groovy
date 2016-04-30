@@ -15,6 +15,9 @@ import spock.lang.Specification
 
 import java.time.LocalDate
 
+import static org.hamcrest.CoreMatchers.is
+import static org.hamcrest.CoreMatchers.not
+import static org.hamcrest.CoreMatchers.sameInstance
 import static org.hamcrest.core.IsNull.notNullValue
 import static org.hamcrest.CoreMatchers.equalTo
 import static spock.util.matcher.HamcrestSupport.*
@@ -39,6 +42,7 @@ class UserDaoISpec extends Specification {
 
         then:
         that userFromDB, notNullValue()
+        that userFromDB, is(not(sameInstance(user)))
         that userFromDB.id, equalTo(user.id)
         that userFromDB.firstName, equalTo(user.firstName)
         that userFromDB.lastName, equalTo(user.lastName)
