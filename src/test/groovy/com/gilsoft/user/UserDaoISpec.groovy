@@ -1,34 +1,15 @@
 package com.gilsoft.user
 
-import com.gilsoft.App
+import com.gilsoft.test.SpringSpec
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.IntegrationTest
-import org.springframework.boot.test.SpringApplicationContextLoader
-import org.springframework.test.annotation.Rollback
-import org.springframework.test.context.ContextConfiguration
-import org.springframework.test.context.TestExecutionListeners
-import org.springframework.test.context.support.DependencyInjectionTestExecutionListener
-import org.springframework.test.context.support.DirtiesContextTestExecutionListener
-import org.springframework.test.context.web.WebAppConfiguration
-import org.springframework.transaction.annotation.Transactional
-import spock.lang.Specification
 
 import java.time.LocalDate
 
-import static org.hamcrest.CoreMatchers.is
-import static org.hamcrest.CoreMatchers.not
-import static org.hamcrest.CoreMatchers.sameInstance
+import static org.hamcrest.CoreMatchers.*
 import static org.hamcrest.core.IsNull.notNullValue
-import static org.hamcrest.CoreMatchers.equalTo
-import static spock.util.matcher.HamcrestSupport.*
+import static spock.util.matcher.HamcrestSupport.that
 
-@TestExecutionListeners([DependencyInjectionTestExecutionListener.class, DirtiesContextTestExecutionListener.class])
-@ContextConfiguration(loader = SpringApplicationContextLoader.class, classes = App.class)
-@WebAppConfiguration
-@IntegrationTest
-@Transactional
-@Rollback
-class UserDaoISpec extends Specification {
+class UserDaoISpec extends SpringSpec {
     @Autowired
     def UserDao userDao
 
@@ -38,6 +19,8 @@ class UserDaoISpec extends Specification {
 
         when:
         userDao.save(user)
+        userDao.entityManager.flush()
+        userDao.entityManager.clear()
         def userFromDB = userDao.getById(user.id)
 
         then:
