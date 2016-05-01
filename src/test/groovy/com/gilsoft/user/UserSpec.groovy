@@ -1,6 +1,7 @@
 package com.gilsoft.user
 
 import spock.lang.Specification
+import spock.lang.Unroll
 
 import static java.time.LocalDate.now
 
@@ -17,6 +18,7 @@ class UserSpec extends Specification {
         assert firstName == "John"
     }
 
+    @Unroll("user born on #user.birthDay should have age #expectedAge")
     def "should calculate age"(user, expectedAge) {
         expect:
         assert user.age == expectedAge
