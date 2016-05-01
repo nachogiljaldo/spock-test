@@ -51,6 +51,7 @@
                         <configuration>
                             <useFile>false</useFile>
                             <includes>
+                                <include>**/*Test.java</include>
                                 <include>**/*Spec.java</include>
                             </includes>
                             <excludes>
