@@ -7,14 +7,14 @@ import static java.time.LocalDate.now
 
 class UserSpec extends Specification {
     def "should have a first name"() {
-        given:
+        given: "a user"
         // [] is Groovy literal for List and is infered
         def user = new User("John", "Doe", now())
 
-        when:
+        when: "I fetch name"
         def firstName = user.firstName
 
-        then:
+        then: "name is correct"
         assert firstName == "John"
     }
 
