@@ -2,6 +2,7 @@ package com.gilsoft.user
 
 import com.gilsoft.test.SpringSpec
 import org.springframework.beans.factory.annotation.Autowired
+import spock.lang.Subject
 
 import java.time.LocalDate
 
@@ -10,6 +11,7 @@ import static org.hamcrest.core.IsNull.notNullValue
 import static spock.util.matcher.HamcrestSupport.that
 
 class UserDaoISpec extends SpringSpec {
+    @Subject
     @Autowired
     def UserDao userDao
 
