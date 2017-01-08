@@ -1,7 +1,7 @@
-# H1 Spock Test
+# Spock Test
 Just a small test to try out some spock capabilities
 
-# H2
+# How to run
 ```bash
 gradle build
 ```
